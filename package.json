@@ -1,6 +1,6 @@
 {
   "name": "release-it-testing",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -28,7 +28,10 @@
       "publish": false
     },
     "hooks": {
-      "after:bump": ["yq w -i values-dev.yaml 'image.tag' v${version}", "KHCP_TAG=v${version} make release"]
+      "after:bump": [
+        "yq w -i values-dev.yaml 'image.tag' v${version}",
+        "KHCP_TAG=v${version} make release"
+      ]
     }
   }
 }

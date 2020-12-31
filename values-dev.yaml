@@ -1,0 +1,19 @@
+konnect-admin:
+  autoscaling:
+    maxReplicas: 2
+image:
+  tag: hello
+ingress:
+  annotations:
+    ingress.pomerium.io/allowed_domains: '["konghq.com"]'
+    nginx.ingress.kubernetes.io/auth-response-headers: X-Pomerium-Claim-Email,X-Pomerium-Claim-User,X-Pomerium-Claim-Groups
+    nginx.ingress.kubernetes.io/auth-signin: https://forwardauth.eks-01.us-west-2.dev.cloud-01.kongcloud.io/?uri=$scheme://$host$request_uri
+    nginx.ingress.kubernetes.io/auth-url: https://forwardauth.eks-01.us-west-2.dev.cloud-01.kongcloud.io/verify?uri=$scheme://$host$request_uri
+  hosts:
+    - host: admin.eks-01.us-west-2.dev.cloud-01.kongcloud.io
+      paths:
+        - /
+  tls:
+    - secretName: konnect-admin-tls
+      hosts:
+        - admin.eks-01.us-west-2.dev.cloud-01.kongcloud.io

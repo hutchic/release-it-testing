@@ -1,0 +1,34 @@
+{
+  "name": "release-it-testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "release": "release-it --minor --ci"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hutchic/release-it-testing.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hutchic/release-it-testing/issues"
+  },
+  "homepage": "https://github.com/hutchic/release-it-testing#readme",
+  "devDependencies": {
+    "release-it": "^14.2.2"
+  },
+  "release-it": {
+    "verbose": 2,
+    "github": {
+      "release": true
+    },
+    "npm": {
+      "publish": false
+    },
+    "hooks": {
+      "after:bump": "ls ."
+    }
+  }
+}

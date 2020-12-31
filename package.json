@@ -28,7 +28,7 @@
       "publish": false
     },
     "hooks": {
-      "after:bump": "ls ."
+      "after:bump": "yq w -i values-dev.yaml 'image.tag' v${version}"
     }
   }
 }

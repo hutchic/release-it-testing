@@ -2,7 +2,7 @@ konnect-admin:
   autoscaling:
     maxReplicas: 2
 image:
-  tag: v2.0.0
+  tag: v2.0.1
 ingress:
   annotations:
     ingress.pomerium.io/allowed_domains: '["konghq.com"]'

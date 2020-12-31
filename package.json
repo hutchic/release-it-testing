@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "release": "release-it --minor --ci"
+    "release": "release-it --ci"
   },
   "repository": {
     "type": "git",

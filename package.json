@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/hutchic/release-it-testing#readme",
   "devDependencies": {
+    "@release-it/bumper": "github:release-it/bumper",
     "release-it": "^14.2.2"
   },
   "release-it": {
@@ -29,17 +30,17 @@
     },
     "plugins": {
       "@release-it/bumper": {
+        "in": "package.json",
         "out": [
-          "package.json",
           {
-            "file": "values-dev.yaml",
-            "path": "image.tag"
+            "file": "package.json"
           }
         ]
       }
     },
     "hooks": {
       "after:bump": [
+        "yq w -i values-dev.yaml 'image.tag' v${version}",
         "KHCP_TAG=v${version} make release"
       ]
     }

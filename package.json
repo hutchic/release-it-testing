@@ -34,13 +34,16 @@
         "out": [
           {
             "file": "package.json"
+          },
+          {
+            "file": "values-dev.yaml",
+            "path": "image.tag"
           }
         ]
       }
     },
     "hooks": {
       "after:bump": [
-        "yq w -i values-dev.yaml 'image.tag' v${version}",
         "KHCP_TAG=v${version} make release"
       ]
     }
